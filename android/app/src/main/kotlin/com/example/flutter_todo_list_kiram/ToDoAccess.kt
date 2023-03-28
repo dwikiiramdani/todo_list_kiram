@@ -5,17 +5,15 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import java.util.List;
-
 @Dao
 interface ToDoDao {
     @Query("SELECT * FROM todo")
-    fun getAll(): List<ToDo>
+    fun getAll(): MutableList<ToDo>
 
-    @Query("SELECT * FROM user WHERE uid IN (:todoIds)")
-    fun loadAllByIds(userIds: IntArray): List<ToDo>
+    @Query("SELECT * FROM todo WHERE uid IN (:todoIds)")
+    fun loadAllByIds(todoIds: IntArray): MutableList<ToDo>
 
-    @Query("SELECT * FROM user WHERE task LIKE :first AND " +
+    @Query("SELECT * FROM todo WHERE task LIKE :first AND " +
             "status LIKE :last LIMIT 1")
     fun findByName(first: String, last: Int): ToDo
 
@@ -23,5 +21,5 @@ interface ToDoDao {
     fun insertAll(vararg todos: ToDo)
 
     @Delete
-    fun delete(user: ToDo)
+    fun delete(toDo: ToDo)
 }
