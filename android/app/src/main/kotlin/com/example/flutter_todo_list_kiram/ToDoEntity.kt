@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class ToDo(
-        @PrimaryKey val uid: Int,
-        @ColumnInfo(name = "task") val task: String?,
-        @ColumnInfo(name = "status") val status: Int?
+    @PrimaryKey(autoGenerate = true) val uid: Int,
+    val task: String?,
+    val status: Int?
 )
 
 
