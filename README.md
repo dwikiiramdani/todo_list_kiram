@@ -1,4 +1,4 @@
-# flutter_todo_list_kiram
+# Flutter To-Do List App Android
 
 A new Flutter project for creating todo list made by Dwiki Ramdani
 
